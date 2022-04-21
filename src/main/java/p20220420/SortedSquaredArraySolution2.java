@@ -1,4 +1,4 @@
-package SortedSquaredArray;
+package p20220420;
 
 import java.util.Arrays;
 

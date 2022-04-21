@@ -1,13 +1,13 @@
-package TournamentWinner;
+package p20220420;
 
 import java.util.*;
 
-public class TournamentWinnerSolution2 {
+public class TournamentWinnerSolution1 {
 
     public static void main(String[] args) {
 
         //Time complexity - O(n) - where n is the input of the result array
-        //Space complexity - O(n) - where n is the size of the hashset
+        //Space complexity - O(n) - where n is the size of the hastmap
         List<List<String>> competitions = new ArrayList<>();
 
         ArrayList<String> c1 = new ArrayList<>();
@@ -37,29 +37,14 @@ public class TournamentWinnerSolution2 {
     private static String tournamentWinner(List<List<String>> competitions, List<Integer> results) {
 
         HashMap<String, Integer> score = new HashMap<>();
-        String possibleChampion = "";
-
-
-
         for (int i = 0; i < results.size(); i++) {
 
             String winnerTeam = competitions.get(i).get(convertResult(results.get(i)));
-
             score.put(winnerTeam,score.get(winnerTeam)!=null?score.get(winnerTeam) +3: 3);
 
-            if (possibleChampion.isEmpty()) {
-                possibleChampion = winnerTeam;
-            }
-
-            if (score.get(possibleChampion) < score.get(winnerTeam)) {
-                possibleChampion = winnerTeam;
-            }
-
-
-
-
         }
-        String champion = possibleChampion;
+        //O(n) - java stream
+        String champion = score.entrySet().stream().max(Comparator.comparing(Map.Entry::getValue)).get().getKey();
 
 
         return champion;
