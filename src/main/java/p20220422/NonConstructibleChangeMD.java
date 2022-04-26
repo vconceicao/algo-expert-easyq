@@ -1,10 +1,9 @@
-package NonConstructibleChange;
+package p20220422;
 
 import java.util.Arrays;
-import java.util.HashSet;
 
 
-public class NonConstructibleChangeSolution1 {
+public class NonConstructibleChangeMD {
 
     public static void main(String[] args) {
 
